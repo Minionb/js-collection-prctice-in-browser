@@ -2,7 +2,6 @@
 
 function collectSameElements(collectionA, collectionB) {
   const result = [];
-  const subcollectionB = [];
   if(collectionB[0]){
  
   collectionA.forEach((element1) => collectionB[0].forEach((element2)=>
