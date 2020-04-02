@@ -1,5 +1,56 @@
 'use strict';
 
 function createUpdatedCollection(collectionA, objectB) {
-  return 'Implement the practice require, and begin changing code in this row';
+  let collectionC = [];
+  let uniqueEle = [];
+  collectionA.forEach((ele1)=>{
+    if (!uniqueEle.includes(ele1)){
+      uniqueEle.push(ele1);
+    }
+  });
+    
+    uniqueEle.forEach((ele2) =>{
+      let count = 0;
+      if (ele2.includes("-")){
+        collectionC.push({"key": ele2.split("-")[0],"count": ele2.split("-")[1]});
+        
+      }
+      else{
+      collectionA.forEach((ele3) => {
+      if(ele3 == ele2){
+      count ++;
+      }
+      
+    })
+  
+    collectionC.push({"key": ele2, "count": count});
+  }
+  }),
+ 
+  collectionC.forEach((element1) => objectB.value.forEach((element2)=>
+  {if(element1.key == element2)
+  {
+    element1["count"] = element1.count - (parseInt(element1.count/3));
+  }
+    
+  }
+   
+  ));
+  
+    return collectionC;
 }
+const collectionA = [
+  'a', 'a', 'a',
+  'e', 'e', 'e', 'e', 'e', 'e', 'e',
+  'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h',
+  't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't',
+  'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f',
+  'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c',
+  'g', 'g', 'g', 'g', 'g', 'g', 'g',
+  'b', 'b', 'b', 'b', 'b', 'b',
+  'd-5'
+];
+
+
+const objectB = {value: ['a', 'd', 'e', 'f']};
+document.write(createUpdatedCollection(collectionA, objectB));
